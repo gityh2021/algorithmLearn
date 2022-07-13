@@ -3,7 +3,7 @@ package BinarySearch;
 public class BinarySort {
     public static void main(String[] args) {
         int[] a = {1, 2, 4, 4, 4, 5, 6, 7, 8, 8, 8};
-        int target = 8;
+        int target = 4;
         int left = 0;
         int right = a.length - 1;
         int mid = 0;
@@ -73,6 +73,23 @@ public class BinarySort {
                 }
             }else{
                 left = mid + 1;
+            }
+        }
+
+        System.out.println("-------------------------查找最后一个小于等于给定值的元素-------------------------");
+        left = 0;
+        right = a.length - 1;
+        while (left <= right){
+            mid = left + (right - left) / 2;
+            if (a[mid] <= target){
+                if (mid == a.length - 1 || a[mid + 1] > target){
+                    System.out.println(mid);
+                    break;
+                }else {
+                    left = mid + 1;
+                }
+            }else {
+                right = mid - 1;
             }
         }
     }
